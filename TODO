@@ -11,15 +11,3 @@ Features to add
 * How about an export to XMI? I think that sounds good.
 
 * Add a way to show dependencies between two classes
-
-Maintainance
-============
-* Refactor ParserSexp class. It's ugly.
-
-Issues
-======
-* Make it support Ruby 1.9
-
-Grocery
-=======
-* Sriracha sauce :9
