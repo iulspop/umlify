@@ -1,5 +1,9 @@
 Features to add
 ===============
+* Add recurcive parse
+  - You can give a directory and it will parse the class diagram for all
+    the ruby file in the directory.
+
 * Support modules (yUML doesn't seem to support Packages yet)
   - Create a png file for each module?
 
