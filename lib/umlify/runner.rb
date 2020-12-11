@@ -40,7 +40,7 @@ module Umlify
 
           # puts 'http://yuml.me'+@diagram.get_uri if @html_mode
           # puts "Saved in uml.png."
-          p @diagram
+          puts @diagram.statements.join("\n")
         else
           puts "No ruby files in the directory."
         end
