@@ -15,7 +15,7 @@ class ParserSexpTest < Test::Unit::TestCase
     end
 
     should "return nil if no source file in the given directory" do
-      parser = Umlify::ParserSexp.new ["not_source", "still_not_source"]
+      parser = Umlify::ParserSexp.new "test/fixtures/empty"
       assert_equal nil, parser.parse_sources!
     end
 
@@ -162,7 +162,7 @@ class ParserSexpTest < Test::Unit::TestCase
     end
 
     should "return an array of UmlClasses when the parsing is done" do
-      p = Umlify::ParserSexp.new Dir[File.dirname(__FILE__)+'/fixtures/*']
+      p = Umlify::ParserSexp.new 'test/fixtures'
       parsed_classes = p.parse_sources!
       assert_equal 4, parsed_classes.count
     end

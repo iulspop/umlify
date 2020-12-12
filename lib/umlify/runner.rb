@@ -22,7 +22,7 @@ module Umlify
       if @args.empty?
         puts "Usage: umlify [source directory]"
       else
-        parser_sexp = ParserSexp.new @args
+        parser_sexp = ParserSexp.new @args[0]
 
         if classes = parser_sexp.parse_sources!
           @diagram = Diagram.new

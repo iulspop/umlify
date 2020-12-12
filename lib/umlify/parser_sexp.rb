@@ -1,4 +1,5 @@
 require 'ruby_parser'
+require "pathname"
 
 module Umlify
 
@@ -8,10 +9,19 @@ module Umlify
   #
   class ParserSexp
 
-    # files should be an array containing file names with the correct path
-    def initialize files
-      @files = files
+    def initialize path_to_project_folder
+      @folder_path = path_to_project_folder
       @classes = []
+    end
+
+    def rec_path(path)
+      path.children.collect do |child|
+        if child.file?
+          child
+        elsif child.directory?
+          rec_path(child) + [child]
+        end
+      end.select { |x| x }.flatten(1).map(&:to_s)
     end
 
     # Parses the source code of the files in @files
@@ -19,6 +29,10 @@ module Umlify
     # parsed classes or nil if no ruby file were found in the
     # @files array.
     def parse_sources!
+      @files = rec_path(Pathname.new(@folder_path))
+      # puts Dir.new(@files[0]).children
+      # Find.find(@files[0]) { |e| puts e if File.directory?(e) }
+
 
       @source_files = @files.select {|f| f.match /\.rb/}
       return nil if @source_files.empty?
