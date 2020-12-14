@@ -5,10 +5,6 @@ require 'optparse'
 
 module Umlify
   # Run an instance of Umlify program. Only intended for internal use.
-  #
-  #  * type of @diagram: 1 Diagram
-  #  * type of @uses: ParserSexp
-  #
   class Runner
     attr_reader :smart_mode, :html_mode
 
@@ -29,11 +25,11 @@ module Umlify
         parser_sexp = ParserSexp.new @args[0]
 
         if classes = parser_sexp.parse_sources!
-          @diagram = Diagram.new
+          diagram = Diagram.new
 
           classes.each { |c| c.infer_types! classes } if @smart_mode
 
-          @diagram.create do
+          diagram.create do
             classes.each { |c| add c }
           end.compute!
 
@@ -42,7 +38,7 @@ module Umlify
 
           # puts 'http://yuml.me'+@diagram.get_uri if @html_mode
           # puts "Saved in uml.png."
-          puts @diagram.statements.join("\n")
+          puts diagram.statements.join("\n")
         else
           puts 'No ruby files in the directory.'
         end
