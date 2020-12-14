@@ -14,15 +14,7 @@ module Umlify
       @classes = []
     end
 
-    def retrieve_list_of_directory_children(path)
-      path.children.collect do |child|
-        if child.file?
-          child
-        elsif child.directory?
-          retrieve_list_of_directory_children(child) + [child]
-        end
-      end.select { |x| x }.flatten(1).map(&:to_s)
-    end
+
 
     # Parses the source code of the files in @files
     # to build uml classes. Returns an array containing all the
@@ -40,6 +32,16 @@ module Umlify
 
       # Removes duplicates between variables and associations in the class
       @classes.each {|c| c.chomp! @classes}
+    end
+
+    def retrieve_list_of_directory_children(path)
+      path.children.collect do |child|
+        if child.file?
+          child
+        elsif child.directory?
+          retrieve_list_of_directory_children(child) + [child]
+        end
+      end.select { |x| x }.flatten(1).map(&:to_s)
     end
 
     # Parse the given string, and return the parsed classes
