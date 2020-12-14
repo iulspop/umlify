@@ -2,12 +2,9 @@ Features to add
 ===============
 * Support modules (yUML doesn't seem to support Packages yet)
   - Create a png file for each module?
-
-* Make classes in the html file clickable, so that it links to
-  the corresponding RDoc file
-
-* Add annotation - need to define how, and what -
-
-* How about an export to XMI? I think that sounds good.
+  - Or use class card for modules, but color them blue
 
 * Add a way to show dependencies between two classes
+
+* Show public, protected and private for methods
+  - add option to show only public methods
