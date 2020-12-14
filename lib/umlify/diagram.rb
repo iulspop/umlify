@@ -1,23 +1,23 @@
-module Umlify
+# frozen_string_literal: true
 
+module Umlify
   # Creates and store a yUML api string for generating diagram
   # * type of @statements: 1..* String
   class Diagram
-
     attr_accessor :statements
 
     def initialize
       @statements = []
     end
 
-    def create &blk
-      instance_eval &blk
+    def create(&blk)
+      instance_eval(&blk)
       self
     end
 
     # Adds the given statement to the @diagram array
     # Statement can either be a String or an UmlClass
-    def add statement
+    def add(statement)
       # TODO: Add some sort of validation
 
       @statements << statement if statement.is_a? String
@@ -25,20 +25,16 @@ module Umlify
 
         @statements << statement.to_s
 
-        if statement.children
-          statement.children.each do |child|
-            @statements << "[#{statement.name}]^[#{child.name}]"
-          end
+        statement.children&.each do |child|
+          @statements << "[#{statement.name}]^[#{child.name}]"
         end
 
         unless statement.associations.empty?
           statement.associations.each do |name, type|
-            unless name =~ /-/
-              cardinality = if statement.associations[name+'-n']
-                              ' '+statement.associations[name+'-n']
-                            end
-              @statements << "[#{statement.name}]-#{name}#{cardinality}>[#{type}]"
-            end
+            next if name =~ /-/
+
+            cardinality = (" #{statement.associations["#{name}-n"]}" if statement.associations["#{name}-n"])
+            @statements << "[#{statement.name}]-#{name}#{cardinality}>[#{type}]"
           end
         end
 
@@ -51,41 +47,38 @@ module Umlify
     # 3. Associations
     # Otherwise, strange behavior can happen in the downloaded graph
     def compute!
-      class_def = /^\[[\w;\?|=!]*?\]$/
+      class_def = /^\[[\w;?|=!]*?\]$/
       inheritance = /\[(.*?)\]\^\[(.*?)\]/
       association = /\[.*\]-.*>\[.*\]/
 
       @statements.sort! do |x, y|
-
-        if x =~ class_def and y =~ inheritance
+        if x =~ class_def && y =~ inheritance
           -1
-        elsif x =~ class_def and y =~ association
+        elsif x =~ class_def && y =~ association
           -1
-        elsif x =~ inheritance and y =~ association
+        elsif x =~ inheritance && y =~ association
           -1
-        elsif x =~ class_def and y =~ class_def
+        elsif x =~ class_def && y =~ class_def
           0
-        elsif x =~ inheritance and y =~ inheritance
+        elsif x =~ inheritance && y =~ inheritance
           0
-        elsif x =~ association and y =~ association
+        elsif x =~ association && y =~ association
           0
         else
           1
         end
-
       end
     end
 
     # Returns the yuml.me uri
     def get_uri
       compute!
-      uri = '/diagram/class/'+@statements.join(", ")
+      uri = "/diagram/class/#{@statements.join(', ')}"
     end
-    
-    #returns just the DSL text for diagram
-    def get_dsl      
-      dsl = @statements.join(", ")
-      dsl
+
+    # returns just the DSL text for diagram
+    def get_dsl
+      @statements.join(', ')
     end
   end
 end
