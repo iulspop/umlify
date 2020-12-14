@@ -19,8 +19,8 @@ module Umlify
     # parsed classes or nil if no ruby file were found in the
     # @files array.
     def parse_sources!
-      @files = list_child_files_paths(Pathname.new(@folder_path))
-      @source_files = @files.select {|f| f.match /\.rb/}
+      files = list_child_files_paths(Pathname.new(@folder_path))
+      @source_files = files.select {|f| f.match /\.rb/}
       return nil if @source_files.empty?
 
       @source_files.each do |file|
