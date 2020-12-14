@@ -32,16 +32,6 @@ module Umlify
       @classes.each {|c| c.chomp! @classes}
     end
 
-    def list_child_files_paths(path)
-      path.children.collect do |child|
-        if child.file?
-          child
-        elsif child.directory?
-          list_child_files_paths(child) + [child]
-        end
-      end.select { |x| x }.flatten(1).map(&:to_s)
-    end
-
     # Parse the given string, and return the parsed classes
     def parse_file file_content
       classes = []
@@ -57,6 +47,18 @@ module Umlify
       end
 
       classes
+    end
+
+    private
+
+    def list_child_files_paths(path)
+      path.children.collect do |child|
+        if child.file?
+          child
+        elsif child.directory?
+          list_child_files_paths(child) + [child]
+        end
+      end.select { |x| x }.flatten(1).map(&:to_s)
     end
 
     # Creates a UmlClass from a class s-expression
