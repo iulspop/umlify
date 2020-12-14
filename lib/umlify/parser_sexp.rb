@@ -24,7 +24,6 @@ module Umlify
       return nil if @source_files.empty?
 
       @source_files.each do |file|
-        puts "processing #{file}..."
         (parse_file File.read(file)).each { |c| @classes << c }
       end
 
@@ -37,8 +36,6 @@ module Umlify
       classes = []
 
       s_exp = RubyParser.new.parse(file_content)
-
-      p s_exp
 
       if s_exp[0] == :class
         classes << parse_class(s_exp)
@@ -65,7 +62,6 @@ module Umlify
 
     # Creates a UmlClass from a class s-expression
     def parse_class(class_s_exp)
-      p class_s_exp
       # Checks if the class is in a module
       uml_class = is_module?(class_s_exp)
 
