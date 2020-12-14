@@ -14,12 +14,12 @@ module Umlify
       @classes = []
     end
 
-    def rec_path(path)
+    def retrieve_list_of_directory_children(path)
       path.children.collect do |child|
         if child.file?
           child
         elsif child.directory?
-          rec_path(child) + [child]
+          retrieve_list_of_directory_children(child) + [child]
         end
       end.select { |x| x }.flatten(1).map(&:to_s)
     end
@@ -29,11 +29,7 @@ module Umlify
     # parsed classes or nil if no ruby file were found in the
     # @files array.
     def parse_sources!
-      @files = rec_path(Pathname.new(@folder_path))
-      # puts Dir.new(@files[0]).children
-      # Find.find(@files[0]) { |e| puts e if File.directory?(e) }
-
-
+      @files = retrieve_list_of_directory_children(Pathname.new(@folder_path))
       @source_files = @files.select {|f| f.match /\.rb/}
       return nil if @source_files.empty?
 
