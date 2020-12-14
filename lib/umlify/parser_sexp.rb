@@ -65,12 +65,7 @@ module Umlify
     def parse_class class_s_exp
 
       # Checks if the class is in a module
-      if class_s_exp[1].class == Symbol
-        uml_class = UmlClass.new class_s_exp[1].to_s
-      else
-        classname = recursive_class_name_find class_s_exp[1]
-        uml_class = UmlClass.new classname unless classname.nil?
-      end
+      uml_class = is_module?(class_s_exp)
 
       # Let's start by building the associations of the class
       each_association_for class_s_exp do |variable, type, cardinality|
@@ -104,6 +99,15 @@ module Umlify
         end
       end
       uml_class
+    end
+
+    def is_module?(class_s_exp)
+      if class_s_exp[1].class == Symbol
+        UmlClass.new class_s_exp[1].to_s
+      else
+        classname = recursive_class_name_find class_s_exp[1]
+        UmlClass.new classname unless classname.nil?
+      end
     end
 
     # Yields the variable, the type and the cardinality for each associations
