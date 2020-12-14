@@ -14,8 +14,6 @@ module Umlify
       @classes = []
     end
 
-
-
     # Parses the source code of the files in @files
     # to build uml classes. Returns an array containing all the
     # parsed classes or nil if no ruby file were found in the
@@ -34,12 +32,12 @@ module Umlify
       @classes.each {|c| c.chomp! @classes}
     end
 
-    def retrieve_list_of_directory_children(path)
+    def list_child_files_paths(path)
       path.children.collect do |child|
         if child.file?
           child
         elsif child.directory?
-          retrieve_list_of_directory_children(child) + [child]
+          list_child_files_paths(child) + [child]
         end
       end.select { |x| x }.flatten(1).map(&:to_s)
     end
