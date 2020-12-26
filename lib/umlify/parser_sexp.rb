@@ -20,10 +20,10 @@ module Umlify
     # @files array.
     def parse_sources!
       files = list_child_files_paths(Pathname.new(@folder_path))
-      @source_files = files.select { |f| f.match(/\.rb/) }
-      return nil if @source_files.empty?
+      source_files = files.select { |f| f.match(/\.rb/) }
+      return nil if source_files.empty?
 
-      @source_files.each do |file|
+      source_files.each do |file|
         (parse_file File.read(file)).each { |c| @classes << c }
       end
 
