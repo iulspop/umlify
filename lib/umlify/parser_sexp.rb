@@ -24,7 +24,8 @@ module Umlify
 
       all_uml_classes = []
       source_files.each do |file|
-        parse_file(File.read(file)).each do |uml_class|
+        file_content = File.read(file)
+        parse_file(file_content).each do |uml_class|
           all_uml_classes << uml_class
         end
       end
