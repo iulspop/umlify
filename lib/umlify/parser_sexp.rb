@@ -31,7 +31,7 @@ module Umlify
       end
 
       # Removes duplicates between variables and associations in the class
-      all_uml_classes.each { |c| c.chomp! all_uml_classes }
+      all_uml_classes.each { |uml_class| uml_class.chomp! all_uml_classes }
     end
 
     # Parse the given string, and return the parsed classes
