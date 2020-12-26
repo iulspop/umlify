@@ -37,7 +37,7 @@ module Umlify
 
       s_exp = RubyParser.new.parse(file_content)
 
-      if s_exp[0] == :class
+      if sexp_contains_one_class?(s_exp)
         classes << parse_class(s_exp)
       else
         s_exp.each_of_type :class do |a_class|
@@ -58,6 +58,10 @@ module Umlify
           list_child_files_paths(child) + [child]
         end
       end.select { |x| x }.flatten(1).map(&:to_s)
+    end
+
+    def sexp_contains_one_class?(s_exp)
+      s_exp[0] == :class
     end
 
     # Creates a UmlClass from a class s-expression
