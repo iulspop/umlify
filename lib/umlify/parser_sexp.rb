@@ -11,7 +11,6 @@ module Umlify
   class ParserSexp
     def initialize(path_to_project_folder)
       @folder_path = path_to_project_folder
-      @classes = []
     end
 
     # Parses the source code of the files in @files
@@ -23,29 +22,32 @@ module Umlify
       source_files = files.select { |f| f.match(/\.rb/) }
       return nil if source_files.empty?
 
+      all_uml_classes = []
       source_files.each do |file|
-        (parse_file File.read(file)).each { |c| @classes << c }
+        (parse_file File.read(file)).each do |file_uml_classes|
+          all_uml_classes << file_uml_classes
+        end
       end
 
       # Removes duplicates between variables and associations in the class
-      @classes.each { |c| c.chomp! @classes }
+      all_uml_classes.each { |c| c.chomp! all_uml_classes }
     end
 
     # Parse the given string, and return the parsed classes
     def parse_file(file_content)
-      classes = []
+      uml_classes = []
 
       s_exp = RubyParser.new.parse(file_content)
 
       if sexp_contains_one_class?(s_exp)
-        classes << parse_class(s_exp)
+        uml_classes << parse_class(s_exp)
       else
         s_exp.each_of_type :class do |a_class|
-          classes << parse_class(a_class)
+          uml_classes << parse_class(a_class)
         end
       end
 
-      classes
+      uml_classes
     end
 
     private
