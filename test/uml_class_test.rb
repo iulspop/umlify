@@ -13,7 +13,7 @@ class UmlClassTest < Test::Unit::TestCase
     end
 
     should "delete variables from the @variables array if they exist in association" do
-      @class.chomp! []
+      @class.finalize_uml_class_info []
       assert_equal false, @class.variables.include?('ducks')
     end
 
@@ -27,7 +27,7 @@ class UmlClassTest < Test::Unit::TestCase
       umlify = Umlify::UmlClass.new "Umlify"
 
       classes = [foo, bar, umlify]
-      classes.each {|c| c.chomp!(classes)}
+      classes.each {|c| c.finalize_uml_class_info(classes)}
 
       assert umlify.children.include? foo
       assert umlify.children.include? bar
