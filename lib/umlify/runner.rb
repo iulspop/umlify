@@ -46,7 +46,6 @@ module Umlify
     def parse_options
       OptionParser.new do |opts|
         opts.on('-s', '--smart') { @smart_mode = true }
-        opts.on('-h', '--html') { @html_mode = true }
         opts.on('-v', '--version') { puts VERSION }
       end.parse! @args
     end
