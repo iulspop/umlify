@@ -10,14 +10,10 @@
             umlify is a tool that creates
           uml class diagrams from your code
 
-         <https://github.com/mikaa123/umlify>
-
 Introduction
 ------------
 
 umlify takes your ruby project's source code and creates an uml class diagram out of it.
-
-*NOTE*: [Umlify 2.0](https://github.com/mikaa123/umlify2) is currently being developped.
 
 Installation
 ------------
@@ -28,8 +24,8 @@ How to use
 ----------
 
 1. Go to your gem project directory
-2. type: `umlify lib/*/*`
-3. Open uml.html
+2. type: `umlify lib/`
+3. Open uml.svg
 
 If you want umlify to try to guess the types of the associations, use
 `umlify -s lib/*/*` at step 2.
@@ -39,15 +35,14 @@ Example
 
 Here is umlify umlified:
 
-![umlify's uml](http://img806.imageshack.us/img806/4123/uml.png)
+![umlify's uml](TODO)
 
 Features
 --------
 
 * Tries to guess the types of the instance variables (smart mode)
-* __new__ Use RubyParser instead of regular expression as of v1.0.0
-* __new__ supports inhertiance (v0.4.2)
-* supports associations (see "How to add associations to a diagram)
+* supports inheritiance
+* supports associations (see "How to add associations to a diagram")
 * supports methods and instance variables
 
 How it works
@@ -94,45 +89,3 @@ association with the "Duck" class, if it exists.
 
 If your variable is @ducks, it will try to create an association with a
 cardinality of '*' with a class called "Duck", if such a class exists.
-
-Contribute
-----------
-
-If you are interested by this project (I hope you are!), you can send me your comments
-(mikaa123 at gmail), test the application and create some issue when you find a bug.
-
-If you want to contribute, you can check the TODO, it's a good place to start. :)
-Just fork and send a pull request. I'd love to have some help.
-
-Not having the expected results?
---------------------------------
-
-If you have found a bug, or if the results you obtained don't correspond
-to your code, you can raise an issue and link to your github project
-page.
-
-Real project testing is way more efficient than on test cases. :)
-
-License
--------
-
-Copyright (C) 2011 Michael Sokol
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-
