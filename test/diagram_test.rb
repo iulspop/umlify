@@ -1,13 +1,13 @@
 require 'test/unit'
 require 'shoulda'
-require 'umlify'
+require 'ruby_to_uml'
 
 class DiagramTest < Test::Unit::TestCase
 
   context "Diagram" do
 
     setup do
-      @diagram = Umlify::Diagram.new
+      @diagram = RubyToUML::Diagram.new
     end
 
     should "respond to create"  do
@@ -24,7 +24,7 @@ class DiagramTest < Test::Unit::TestCase
     end
 
     should "add UmlClass without associations to diagrams"  do
-      test_uml_class = Umlify::UmlClass.new 'Unicorn'
+      test_uml_class = RubyToUML::UmlClass.new 'Unicorn'
       test_uml_class.variables << 'foo_variable'
       test_uml_class.methods << 'bar_method'
 
@@ -36,7 +36,7 @@ class DiagramTest < Test::Unit::TestCase
     end
 
     should "add UmlClass with associations to diagrams"  do
-      test_uml_class = Umlify::UmlClass.new 'Unicorn'
+      test_uml_class = RubyToUML::UmlClass.new 'Unicorn'
       test_uml_class.variables << 'foo_variable'
       test_uml_class.methods << 'bar_method'
       test_uml_class.associations['foo'] = 'Bar'
@@ -52,7 +52,7 @@ class DiagramTest < Test::Unit::TestCase
     end
 
     should "process cardinality for associations"  do
-      test_uml_class = Umlify::UmlClass.new 'Unicorn'
+      test_uml_class = RubyToUML::UmlClass.new 'Unicorn'
       test_uml_class.associations['foo'] = 'Bar'
       test_uml_class.associations['foo-n'] = '1..*'
 
@@ -64,7 +64,7 @@ class DiagramTest < Test::Unit::TestCase
     end
 
     # should "add UmlClass with parent to diagrams"  do
-    #   test_uml_class = Umlify::UmlClass.new 'Unicorn'
+    #   test_uml_class = RubyToUML::UmlClass.new 'Unicorn'
     #   test_uml_class.variables << 'foo_variable'
     #   test_uml_class.methods << 'bar_method'
     #   test_uml_class.parent = "Foo"
@@ -76,19 +76,6 @@ class DiagramTest < Test::Unit::TestCase
     #   assert @diagram.statements.include? '[Unicorn|foo_variable|bar_method]'
     #   assert @diagram.statements.include? '[Foo]^[Unicorn]'
     # end
-
-    should "get the yuml uri"  do
-      test_uml_class = Umlify::UmlClass.new 'Unicorn'
-      test_uml_class.variables << 'foo_variable'
-      test_uml_class.methods << 'bar_method'
-
-      @diagram.create do
-        add test_uml_class
-      end
-
-      assert_equal '/diagram/class/[Unicorn|foo_variable|bar_method]',
-       @diagram.get_uri
-    end
 
     should "sort the statements so that the class declarations are first, then
         the inheritance, then the associations" do

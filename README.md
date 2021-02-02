@@ -1,41 +1,37 @@
-                            _ _  __
-                           | (_)/ _|
-            _   _ _ __ ___ | |_| |_ _   _
-           | | | | '_ ` _ \| | |  _| | | |
-           | |_| | | | | | | | | | | |_| |
-            \__,_|_| |_| |_|_|_|_|  \__, |
-                                     __/ |
-                                    |___/
-
-            umlify is a tool that creates
-          uml class diagrams from your code
-
+# 🖼️ Ruby To UML Class Diagram
 Introduction
 ------------
 
-umlify takes your ruby project's source code and creates an uml class diagram out of it.
+ruby_to_uml takes creates a uml class diagram from ruby source code.
+
+It's a fork of [ruby_to_uml](https://github.com/mikaa123/ruby_to_uml), which doesn't function at the time of writing.
+
+Thanks to Michael Sokol for creating RubyToUML and allowing me to republish it!
 
 Installation
 ------------
 
-    gem install umlify
+    gem install ruby_to_uml
 
 How to use
 ----------
 
-1. Go to your gem project directory
-2. type: `umlify lib/`
-3. Open uml.svg
+1. Go to your Ruby project directory
 
-If you want umlify to try to guess the types of the associations, use
-`umlify -s lib/*/*` at step 2.
+2. Run ruby_to_um
+   a. To create diagram for a whole project: `ruby_to_uml lib/`
+   b. To create diagram for one file: `ruby_to_uml lib/thing.rb` ()
+
+   Optionally, you can pass in the '-s' option to for ruby_to_uml to guess the types of the associations
+
+3. Open uml.svg with any browser
 
 Example
 -------
 
-Here is umlify umlified:
+Here is UML diagram of ruby_to_uml created with ruby_to_uml:
 
-![umlify's uml](TODO)
+![ruby_to_uml's uml](TODO)
 
 Features
 --------
@@ -48,11 +44,7 @@ Features
 How it works
 ------------
 
-umlify parses your source codes using regular expressions to build an uml
-diagram using [yUML](http://yuml.me/)'s api.
-
-Note: Regexps parsing is really dirty. This point needs serious
-improvement
+ruby_to_uml uses ruby_parser to parse Ruby source code to an S-expression tree. Then, the S-expression is parsed into UML classes. Finally, the UML classes are convert to a DSL and sent to [yUML](http://yuml.me/)'s API for conversion into a diagram.
 
 On dynamic languages
 --------------------
@@ -80,7 +72,7 @@ classes. However, if you want an association to be shown on your diagram simply 
 Smart mode
 ----------
 
-If you use umlify with the `-s` or `--smart` option, it'll try to guess
+If you use ruby_to_uml with the `-s` or `--smart` option, it'll try to guess
 the types of the associations based on the name of the instance
 variables.
 

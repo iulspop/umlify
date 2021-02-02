@@ -1,6 +1,6 @@
 require 'test/unit'
 require 'shoulda'
-require 'umlify'
+require 'ruby_to_uml'
 
 class ParserSexpTest < Test::Unit::TestCase
 
@@ -8,7 +8,7 @@ class ParserSexpTest < Test::Unit::TestCase
 
     setup do
       fixture = ["somefile.rb", "someotherfile.rb"]
-      @p = Umlify::ParserSexp.new fixture
+      @p = RubyToUML::ParserSexp.new fixture
     end
 
     should "respond to parse_sources!"  do
@@ -16,7 +16,7 @@ class ParserSexpTest < Test::Unit::TestCase
     end
 
     should "return nil if no source file in the given directory" do
-      parser = Umlify::ParserSexp.new "test/fixtures/empty"
+      parser = RubyToUML::ParserSexp.new "test/fixtures/empty"
       assert_equal nil, parser.parse_sources!
     end
 
@@ -67,7 +67,7 @@ class ParserSexpTest < Test::Unit::TestCase
       end
       END_FILE
       bar = @p.parse_file(test)[0]
-      assert_instance_of Umlify::UmlClass, bar
+      assert_instance_of RubyToUML::UmlClass, bar
       assert bar.variables.include? "a_variable"
       assert bar.variables.include? "another_variable"
       assert_equal false, bar.variables.include?('a_class_instance_variable')
@@ -91,7 +91,7 @@ class ParserSexpTest < Test::Unit::TestCase
       end
       END_FILE
       bar = @p.parse_file(test)[0]
-      assert_instance_of Umlify::UmlClass, bar
+      assert_instance_of RubyToUML::UmlClass, bar
       assert_equal "Unicorn", bar.associations['unicorn']
       assert_equal "Duck", bar.associations['quackable']
       assert_equal "Cow", bar.associations['edible']
@@ -111,7 +111,7 @@ class ParserSexpTest < Test::Unit::TestCase
         end
       END_FILE
       bar = @p.parse_file(test)[0]
-      assert_instance_of Umlify::UmlClass, bar
+      assert_instance_of RubyToUML::UmlClass, bar
       assert_equal "Hash", bar.parent
     end
 
@@ -128,7 +128,7 @@ class ParserSexpTest < Test::Unit::TestCase
         end
       END_FILE
       bar = @p.parse_file(test)[0]
-      assert_instance_of Umlify::UmlClass, bar
+      assert_instance_of RubyToUML::UmlClass, bar
       assert_equal "SomeModule::Hash", bar.parent
     end
 
@@ -145,7 +145,7 @@ class ParserSexpTest < Test::Unit::TestCase
         end
       END_FILE
       bar = @p.parse_file(test)[0]
-      assert_instance_of Umlify::UmlClass, bar
+      assert_instance_of RubyToUML::UmlClass, bar
       assert_equal "SomeModule::Bar", bar.name
     end
 
@@ -163,7 +163,7 @@ class ParserSexpTest < Test::Unit::TestCase
     end
 
     should "return an array of UmlClasses when the parsing is done" do
-      p = Umlify::ParserSexp.new 'test/fixtures'
+      p = RubyToUML::ParserSexp.new 'test/fixtures'
       parsed_classes = p.parse_sources!
       assert_equal 4, parsed_classes.count
     end

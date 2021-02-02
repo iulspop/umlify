@@ -1,6 +1,6 @@
 require 'test/unit'
 require 'shoulda'
-require 'umlify'
+require 'ruby_to_uml'
 
 class StringTest < Test::Unit::TestCase
 

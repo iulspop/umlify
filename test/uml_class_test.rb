@@ -1,13 +1,13 @@
 require 'test/unit'
 require 'shoulda'
-require 'umlify'
+require 'ruby_to_uml'
 
 class UmlClassTest < Test::Unit::TestCase
 
   context "UmlClass" do
 
     setup do
-      @class = Umlify::UmlClass.new 'Farm'
+      @class = RubyToUML::UmlClass.new 'Farm'
       @class.variables = ['ducks', 'some_cows', 'farm_house']
       @class.associations['ducks'] = 'Duck'
     end
@@ -18,26 +18,26 @@ class UmlClassTest < Test::Unit::TestCase
     end
 
     should "create a list of children, given all the types available" do
-      foo = Umlify::UmlClass.new "Foo"
-      foo.parent = "Umlify"
+      foo = RubyToUML::UmlClass.new "Foo"
+      foo.parent = "RubyToUML"
 
-      bar = Umlify::UmlClass.new "Bar"
-      bar.parent = "Umlify"
+      bar = RubyToUML::UmlClass.new "Bar"
+      bar.parent = "RubyToUML"
 
-      umlify = Umlify::UmlClass.new "Umlify"
+      ruby_to_uml = RubyToUML::UmlClass.new "RubyToUML"
 
-      classes = [foo, bar, umlify]
+      classes = [foo, bar, ruby_to_uml]
       classes.each {|c| c.finalize_uml_class_info(classes)}
 
-      assert umlify.children.include? foo
-      assert umlify.children.include? bar
+      assert ruby_to_uml.children.include? foo
+      assert ruby_to_uml.children.include? bar
       assert_equal nil, foo.parent
       assert_equal nil, bar.parent
     end
 
     should "be able to infer types for associations with the variables in @variables" do
-      classes = [Umlify::UmlClass.new("Foo"), Umlify::UmlClass.new("Bar")]
-      foo_bar = Umlify::UmlClass.new "FooBar"
+      classes = [RubyToUML::UmlClass.new("Foo"), RubyToUML::UmlClass.new("Bar")]
+      foo_bar = RubyToUML::UmlClass.new "FooBar"
       foo_bar.variables = ["foo", "bars", "args"]
       classes << foo_bar
 

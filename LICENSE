@@ -8,7 +8,7 @@
 #                                    |___/
 #
 #
-# umlify is tool that generates uml from your ruby source files. It
+# ruby_to_uml is tool that generates uml from your ruby source files. It
 # works using yUML.me web api.
 #
 # Copyright 2011 Michael Sokol
