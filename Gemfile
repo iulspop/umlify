@@ -1,6 +1,10 @@
 source "http://rubygems.org"
-gem 'shoulda'
-gem 'watchr'
+
+ruby '3.0.0'
+
 gem 'ruby_parser'
 gem 'activesupport'
-gem 'i18n'
+
+group :development do
+  gem 'shoulda'
+end

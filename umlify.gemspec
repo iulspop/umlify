@@ -34,5 +34,4 @@ Gem::Specification.new do |spec|
   spec.executables = ['umlify']
   spec.add_dependency('ruby_parser')
   spec.add_dependency('activesupport')
-  spec.add_dependency('i18n')
 end

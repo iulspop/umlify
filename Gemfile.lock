@@ -1,40 +1,39 @@
 GEM
   remote: http://rubygems.org/
   specs:
-    activesupport (6.1.0)
+    activesupport (6.1.1)
       concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (>= 1.6, < 2)
       minitest (>= 5.1)
       tzinfo (~> 2.0)
       zeitwerk (~> 2.3)
-    concurrent-ruby (1.1.7)
-    i18n (1.8.5)
+    concurrent-ruby (1.1.8)
+    i18n (1.8.8)
       concurrent-ruby (~> 1.0)
-    minitest (5.14.2)
-    ruby_parser (3.15.0)
+    minitest (5.14.3)
+    ruby_parser (3.15.1)
       sexp_processor (~> 4.9)
-    sexp_processor (4.15.1)
+    sexp_processor (4.15.2)
     shoulda (4.0.0)
       shoulda-context (~> 2.0)
       shoulda-matchers (~> 4.0)
     shoulda-context (2.0.0)
-    shoulda-matchers (4.4.1)
+    shoulda-matchers (4.5.1)
       activesupport (>= 4.2.0)
-    tzinfo (2.0.3)
+    tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
-    watchr (0.7)
     zeitwerk (2.4.2)
 
 PLATFORMS
-  ruby
   x86_64-linux
 
 DEPENDENCIES
   activesupport
-  i18n
   ruby_parser
   shoulda
-  watchr
+
+RUBY VERSION
+   ruby 3.0.0p0
 
 BUNDLED WITH
-   2.2.0
+   2.2.3
