@@ -19,10 +19,9 @@ How to use
 1. Go to your Ruby project directory
 
 2. Run ruby_to_um
-   a. To create diagram for a whole project: `ruby_to_uml lib/`
-   b. To create diagram for one file: `ruby_to_uml lib/thing.rb` ()
-
-   Optionally, you can pass in the '-s' option to for ruby_to_uml to guess the types of the associations
+    * To create diagram for a whole project: `ruby_to_uml lib/`
+    * To create diagram for one file: `ruby_to_uml lib/thing.rb` ()
+    * Optionally, you can pass in the '-s' option to for ruby_to_uml to guess the types of the associations
 
 3. Open uml.svg with any browser
 
