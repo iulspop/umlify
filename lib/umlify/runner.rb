@@ -57,7 +57,7 @@ module Umlify
       host = "yuml.me"
       path = "/diagram/scruffy/class/" + ERB::Util.url_encode(diagram.get_dsl)
       uri = URI(scheme + host + path)
-      Net::HTTP.get(uri)
+      Net::HTTP.get_response(uri)
     end
 
     # def save_to_file image
