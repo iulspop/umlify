@@ -13,7 +13,6 @@ module Umlify
     def initialize(args)
       @args = args
       @smart_mode = false
-      @html_mode = false
     end
 
     # Runs the application

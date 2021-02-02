@@ -70,12 +70,6 @@ module Umlify
       end
     end
 
-    # Returns the yuml.me uri
-    def get_uri
-      compute!
-      uri = "/diagram/class/#{@statements.join(', ')}"
-    end
-
     # returns just the DSL text for diagram
     def get_dsl
       @statements.join(', ')
