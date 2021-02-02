@@ -4,7 +4,7 @@ Introduction
 
 ruby_to_uml takes creates a uml class diagram from ruby source code.
 
-It's a fork of [ruby_to_uml](https://github.com/mikaa123/ruby_to_uml), which doesn't function at the time of writing.
+It's a fork of [umlify](https://github.com/mikaa123/umlify), which doesn't function at the time of writing.
 
 Thanks to Michael Sokol for creating RubyToUML and allowing me to republish it!
 
