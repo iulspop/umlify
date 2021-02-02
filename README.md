@@ -6,7 +6,7 @@ ruby_to_uml takes creates a uml class diagram from ruby source code.
 
 It's a fork of [umlify](https://github.com/mikaa123/umlify), which doesn't function at the time of writing.
 
-Thanks to Michael Sokol for creating RubyToUML and allowing me to republish it!
+Thanks to Michael Sokol for creating Umlify and allowing me to republish it!
 
 Installation
 ------------
@@ -20,8 +20,8 @@ How to use
 
 2. Run ruby_to_um
     * To create diagram for a whole project: `ruby_to_uml lib/`
-    * To create diagram for one file: `ruby_to_uml lib/thing.rb` ()
-    * Optionally, you can pass in the '-s' option to for ruby_to_uml to guess the types of the associations
+    * To create diagram for one file: `ruby_to_uml lib/thing.rb`
+    * Optionally, you can pass in the '-s' option to ruby_to_uml for it decuce associations between classes
 
 3. Open uml.svg with any browser
 

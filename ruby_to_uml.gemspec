@@ -5,7 +5,7 @@ Gem::Specification.new do |spec|
   spec.name = 'ruby_to_uml'
   spec.author = 'Iuliu Pop'
   spec.email = 'iuliu.laurentiu.pop@protonmail.com'
-  spec.homepage = 'https://github.com/mikaa123/ruby_to_uml'
+  spec.homepage = 'https://github.com/iulspop/ruby_to_uml'
   spec.version = RubyToUML::VERSION
   spec.summary = "ruby_to_uml is a tool that creates class diagrams from Ruby code."
   spec.files = %w[
