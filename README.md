@@ -31,7 +31,7 @@ Example
 
 Here is UML diagram of ruby_to_uml created with ruby_to_uml:
 
-![ruby_to_uml's uml](TODO)
+![][uml_diagram_demo]
 
 Features
 --------
@@ -81,3 +81,7 @@ association with the "Duck" class, if it exists.
 
 If your variable is @ducks, it will try to create an association with a
 cardinality of '*' with a class called "Duck", if such a class exists.
+
+<!-- Links -->
+
+[uml_diagram_demo]: https://github.com/iulspop/ruby_to_uml/blob/master/docs/UML_diagram_demo.svg?raw=true
