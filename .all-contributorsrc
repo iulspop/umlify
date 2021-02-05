@@ -1,0 +1,26 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "mikaa123",
+      "name": "Michael Sokol",
+      "avatar_url": "https://avatars.githubusercontent.com/u/428280?v=4",
+      "profile": "https://github.com/mikaa123",
+      "contributions": [
+        "infra",
+        "test",
+        "code"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "ruby_to_uml",
+  "projectOwner": "iulspop",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}
