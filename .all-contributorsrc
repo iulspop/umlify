@@ -15,6 +15,15 @@
         "test",
         "code"
       ]
+    },
+    {
+      "login": "tylergreen",
+      "name": "Tyler Green",
+      "avatar_url": "https://avatars.githubusercontent.com/u/38147?v=4",
+      "profile": "http://treewalker.wordpress.com",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
