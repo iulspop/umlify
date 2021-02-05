@@ -70,10 +70,6 @@ association with the "Duck" class, if it exists.
 If your variable is @ducks, it will try to create an association with a
 cardinality of '*' with a class called "Duck", if such a class exists.
 
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-
-<!-- ALL-CONTRIBUTORS-LIST:END -->
-
 Alternatives
 ------------
 
