@@ -73,16 +73,6 @@ association with the "Duck" class, if it exists.
 If your variable is @ducks, it will try to create an association with a
 cardinality of '*' with a class called "Duck", if such a class exists.
 
-Alternatives
-------------
-
-This gem is a fork of [umlify](https://github.com/mikaa123/umlify), which doesn't function at the time of writing.
-
-Thanks to Michael Sokol for creating Umlify and allowing me to republish it!
-
-<!-- Links -->
-
-[uml_diagram_demo]: https://github.com/iulspop/ruby_to_uml/blob/master/docs/UML_diagram_demo.svg?raw=true
 ## Contributors ✨
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
@@ -102,3 +92,14 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+
+Alternatives
+------------
+
+This gem is a fork of [umlify](https://github.com/mikaa123/umlify), which doesn't function at the time of writing.
+
+Thanks to Michael Sokol for creating Umlify and allowing me to republish it!
+
+<!-- Links -->
+
+[uml_diagram_demo]: https://github.com/iulspop/ruby_to_uml/blob/master/docs/UML_diagram_demo.svg?raw=true
