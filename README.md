@@ -1,12 +1,8 @@
 # 🖼️ Ruby To UML Class Diagram
-Introduction
-------------
 
-ruby_to_uml takes creates a uml class diagram from ruby source code.
+Ruby To UML takes creates a uml class diagram from ruby source code.
 
-It's a fork of [umlify](https://github.com/mikaa123/umlify), which doesn't function at the time of writing.
-
-Thanks to Michael Sokol for creating Umlify and allowing me to republish it!
+![][uml_diagram_demo]
 
 Installation
 ------------
@@ -24,13 +20,6 @@ How to use
     * Optionally, you can pass in the '-s' option to ruby_to_uml for it decuce associations between classes
 
 3. Open uml.svg with any browser
-
-Example
--------
-
-Here is UML diagram of ruby_to_uml created with ruby_to_uml:
-
-![][uml_diagram_demo]
 
 Features
 --------
@@ -84,3 +73,10 @@ cardinality of '*' with a class called "Duck", if such a class exists.
 <!-- Links -->
 
 [uml_diagram_demo]: https://github.com/iulspop/ruby_to_uml/blob/master/docs/UML_diagram_demo.svg?raw=true
+
+Alternatives
+------------
+
+This gem is a fork of [umlify](https://github.com/mikaa123/umlify), which doesn't function at the time of writing.
+
+Thanks to Michael Sokol for creating Umlify and allowing me to republish it!
