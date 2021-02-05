@@ -1,4 +1,7 @@
 # 🖼️ Ruby To UML Class Diagram
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Ruby To UML takes creates a uml class diagram from ruby source code.
 
@@ -80,3 +83,22 @@ Thanks to Michael Sokol for creating Umlify and allowing me to republish it!
 <!-- Links -->
 
 [uml_diagram_demo]: https://github.com/iulspop/ruby_to_uml/blob/master/docs/UML_diagram_demo.svg?raw=true
+## Contributors ✨
+
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/mikaa123"><img src="https://avatars.githubusercontent.com/u/428280?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Michael Sokol</b></sub></a><br /><a href="#infra-mikaa123" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="https://github.com/iulspop/ruby_to_uml/commits?author=mikaa123" title="Tests">⚠️</a> <a href="https://github.com/iulspop/ruby_to_uml/commits?author=mikaa123" title="Code">💻</a></td>
+  </tr>
+</table>
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
