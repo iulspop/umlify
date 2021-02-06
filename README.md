@@ -96,13 +96,26 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
 
-Alternatives
+Why fork Umlify?
 ------------
 
-This gem is a fork of [umlify](https://github.com/mikaa123/umlify), which doesn't function at the time of writing.
+This gem is a fork of [umlify](https://github.com/mikaa123/umlify).
+That project is no longer maintained, but the code is good and solves a problem.
 
-Thanks to Michael Sokol for creating Umlify and allowing me to republish it!
+This project fixes breaking issues with umlify. We also plan to add new features, such as showing private/public methods.
+
+Thanks to Michael Sokol and contributors for creating Umlify and allowing me to republish it!
+
+Licence
+-------
+
+💁 [Copyright 2011 Michael Sokol][license]
+
 
 <!-- Links -->
+
+[license]: https://github.com/iulspop/ruby_to_uml/blob/master/LICENSE.md
+
+<!-- Demo images -->
 
 [uml_diagram_demo]: https://github.com/iulspop/ruby_to_uml/blob/master/docs/UML_diagram_demo.svg?raw=true
