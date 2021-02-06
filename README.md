@@ -7,13 +7,11 @@ Ruby To UML takes creates a uml class diagram from ruby source code.
 
 ![][uml_diagram_demo]
 
-Installation
-------------
+## Installation
 
     gem install ruby_to_uml
 
-How to use
-----------
+## How to use
 
 1. Go to your Ruby project directory
 
@@ -24,21 +22,18 @@ How to use
 
 3. Open uml.svg with any browser
 
-Features
---------
+## Features
 
 * Tries to guess the types of the instance variables (smart mode)
 * supports inheritiance
 * supports associations (see "How to add associations to a diagram")
 * supports methods and instance variables
 
-How it works
-------------
+## How it works
 
 ruby_to_uml uses ruby_parser to parse Ruby source code to an S-expression tree. Then, the S-expression is parsed into UML classes. Finally, the UML classes are convert to a DSL and sent to [yUML](http://yuml.me/)'s API for conversion into a diagram.
 
-On dynamic languages
---------------------
+## On dynamic languages
 
 Ruby's extreme decoupling and duck-typing philosophy doesn't judge a class by its hierarchy.
 Thus, variables don't have a predefined type, which conflicts with uml's static typed object-model.
@@ -46,8 +41,7 @@ The objective of this project isn't to bend uml's model to make it semantically 
 duck typing (by the use of interfaces, or other tricks), but to add a basic visual representation
 of the code of your project for documenting and helping maintainers.
 
-How to add associations to a diagram
-------------------------------------
+## How to add associations to a diagram
 
 Because of the above point, there's no direct way to automatically draw associations between your
 classes. However, if you want an association to be shown on your diagram simply annotate your classes such as:
@@ -60,8 +54,7 @@ classes. However, if you want an association to be shown on your diagram simply 
       end
     end
 
-Smart mode
-----------
+## Smart mode
 
 If you use ruby_to_uml with the `-s` or `--smart` option, it'll try to guess
 the types of the associations based on the name of the instance
@@ -96,8 +89,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
 
-Why fork Umlify?
-------------
+## Why fork Umlify?
 
 This gem is a fork of [umlify](https://github.com/mikaa123/umlify).
 That project is no longer maintained, but the code is good and solves a problem.
@@ -106,8 +98,7 @@ This project fixes breaking issues with umlify. We also plan to add new features
 
 Thanks to Michael Sokol and contributors for creating Umlify and allowing me to republish it!
 
-Licence
--------
+## Licence
 
 💁 [Copyright 2011 Michael Sokol][license]
 
