@@ -66,6 +66,10 @@ association with the "Duck" class, if it exists.
 If your variable is @ducks, it will try to create an association with a
 cardinality of '*' with a class called "Duck", if such a class exists.
 
+## Contributing
+
+This project is not meant to be developed continuously, but maintained in a functional state.
+Though, if you want to add your ideas to it. You're welcome to open an issue.
 ## Contributors ✨
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
