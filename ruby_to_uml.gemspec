@@ -1,14 +1,14 @@
-$:.push File.expand_path('../lib', __FILE__)
+$LOAD_PATH << File.expand_path('../lib', __FILE__)
 require 'ruby_to_uml/version'
 
 Gem::Specification.new do |spec|
   spec.name     = 'ruby_to_uml'
-  spec.authors  = ['Iuliu Pop', 'Michael Sokol']
-  spec.email    = 'iuliu.laurentiu.pop@protonmail.com'
-  spec.homepage = 'https://github.com/iulspop/ruby_to_uml'
   spec.version  = RubyToUML::VERSION
-  spec.summary  = "ruby_to_uml is a tool that creates class diagrams from Ruby code."
   spec.license  = 'MIT'
+  spec.authors  = ['Iuliu Pop', 'Michael Sokol']
+  spec.email    = ['iuliu.laurentiu.pop@protonmail.com']
+  spec.homepage = 'https://github.com/iulspop/ruby_to_uml'
+  spec.summary  = "ruby_to_uml is a tool that creates class diagrams from Ruby code."
   spec.files = %w[
     Rakefile
     README.md
