@@ -12,10 +12,10 @@ module RubyToUML
     def initialize(args)
       @args = args
       @smart_mode = false
+      parse_options(args)
     end
 
     def run
-      parse_options
       return puts 'Usage: ruby_to_uml [source directory]' if args.empty?
 
       classes = parse_s_expressions
@@ -40,10 +40,11 @@ module RubyToUML
     private
 
     attr_reader :args
+    attr_writer :smart_mode
 
-    def parse_options
+    def parse_options(args)
       OptionParser.new do |opts|
-        opts.on('-s', '--smart') { @smart_mode = true }
+        opts.on('-s', '--smart') { smart_mode = true }
         opts.on('-v', '--version') { puts VERSION }
       end.parse!(args)
     end
