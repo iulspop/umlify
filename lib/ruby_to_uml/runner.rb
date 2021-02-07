@@ -23,9 +23,7 @@ module RubyToUML
 
       diagram = create_diagram(classes)
 
-      svg = download_svg(diagram)
-      save_to_file(svg)
-      puts 'Saved in uml.svg'
+      create_svg_file(diagram)
     end
 
     private
@@ -44,11 +42,17 @@ module RubyToUML
       ParserSexp.new(args[0]).parse_sources!
     end
 
-    def create_diagram
+    def create_diagram(classes)
       diagram = Diagram.new
       diagram.create do
         classes.each { |c| add c }
       end.compute!
+    end
+
+    def create_svg_file(diagram)
+      svg = download_svg(diagram)
+      save_to_file(svg)
+      puts 'Saved in uml.svg'
     end
 
     def download_svg(diagram)
