@@ -47,6 +47,7 @@ module RubyToUML
       diagram.create do
         classes.each { |c| add c }
       end.compute!
+      diagram
     end
 
     def create_svg_file(diagram)
