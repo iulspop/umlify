@@ -104,7 +104,7 @@ Thanks to Michael Sokol and contributors for creating Umlify and allowing me to 
 
 ## Licence
 
-💁 [Copyright 2011 Michael Sokol][license]
+💁 [MIT][license]
 
 
 <!-- Links -->
