@@ -9,8 +9,8 @@ module RubyToUML
   #  * type of @classes: 0..* UmlClass
   #
   class ParserSexp
-    def initialize(path_to_project_folder)
-      @folder_path = path_to_project_folder
+    def initialize(path)
+      @path_to_folder_or_file = path
     end
 
     # Parses the source code of the files in @files
@@ -18,8 +18,14 @@ module RubyToUML
     # parsed classes or nil if no ruby file were found in the
     # @files array.
     def parse_sources!
-      files = list_child_files_paths(Pathname.new(@folder_path))
-      source_files = files.select { |f| f.match(/\.rb/) }
+      source_files = nil
+      if path_to_folder_or_file.match /.rb/
+        source_files = [path_to_folder_or_file]
+      else
+        files = list_child_files_paths(Pathname.new(path_to_folder_or_file))
+        source_files = files.select { |f| f.match(/\.rb/) }
+      end
+
       return nil if source_files.empty?
 
       all_uml_classes = []
@@ -54,6 +60,8 @@ module RubyToUML
     end
 
     private
+
+    attr_reader :path_to_folder_or_file
 
     def list_child_files_paths(path)
       path.children.collect do |child|
