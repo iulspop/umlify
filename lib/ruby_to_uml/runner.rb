@@ -9,13 +9,11 @@ module RubyToUML
   class Runner
     attr_reader :smart_mode, :html_mode
 
-    # Takes as input an array with file names
     def initialize(args)
-      args = args
+      @args = args
       @smart_mode = false
     end
 
-    # Runs the application
     def run
       parse_options
       return puts 'Usage: ruby_to_uml [source directory]' if args.empty?
