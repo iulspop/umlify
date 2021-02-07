@@ -1,8 +1,8 @@
-require 'test/unit'
+require 'minitest/autorun'
 require 'shoulda'
 require 'ruby_to_uml'
 
-class ParserSexpTest < Test::Unit::TestCase
+class ParserSexpTest < Minitest::Test
 
   context "ParserSexp" do
 
@@ -17,7 +17,7 @@ class ParserSexpTest < Test::Unit::TestCase
 
     should "return nil if no source file in the given directory" do
       parser = RubyToUML::ParserSexp.new "test/fixtures/empty"
-      assert_equal nil, parser.parse_sources!
+      assert_nil parser.parse_sources!
     end
 
     should "parse class names" do

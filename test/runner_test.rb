@@ -1,12 +1,12 @@
-require 'test/unit'
+require 'minitest/autorun'
 require 'shoulda'
 require 'ruby_to_uml'
 
-class RunnerTest < Test::Unit::TestCase
+class RunnerTest < Minitest::Test
 
   context "Runner" do
 
-    should "be in smart mode when passed -s or --smart as an option"  do
+    should 'be in smart mode when passed -s or --smart as an option'  do
       r = RubyToUML::Runner.new(["-s"])
       r.run
       assert r.smart_mode

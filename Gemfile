@@ -7,4 +7,6 @@ gem 'activesupport'
 
 group :development do
   gem 'shoulda'
+  gem 'rake'
+  gem 'minitest'
 end

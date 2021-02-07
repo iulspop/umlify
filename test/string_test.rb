@@ -1,8 +1,8 @@
-require 'test/unit'
+require 'minitest/autorun'
 require 'shoulda'
 require 'ruby_to_uml'
 
-class StringTest < Test::Unit::TestCase
+class StringTest < Minitest::Test
 
   context "String" do
 

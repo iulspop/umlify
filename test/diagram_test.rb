@@ -1,8 +1,8 @@
-require 'test/unit'
+require 'minitest/autorun'
 require 'shoulda'
 require 'ruby_to_uml'
 
-class DiagramTest < Test::Unit::TestCase
+class DiagramTest < Minitest::Test
 
   context "Diagram" do
 

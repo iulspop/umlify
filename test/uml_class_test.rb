@@ -1,8 +1,8 @@
-require 'test/unit'
+require 'minitest/autorun'
 require 'shoulda'
 require 'ruby_to_uml'
 
-class UmlClassTest < Test::Unit::TestCase
+class UmlClassTest < Minitest::Test
 
   context "UmlClass" do
 
@@ -31,8 +31,8 @@ class UmlClassTest < Test::Unit::TestCase
 
       assert ruby_to_uml.children.include? foo
       assert ruby_to_uml.children.include? bar
-      assert_equal nil, foo.parent
-      assert_equal nil, bar.parent
+      assert_nil foo.parent
+      assert_nil bar.parent
     end
 
     should "be able to infer types for associations with the variables in @variables" do
@@ -46,7 +46,7 @@ class UmlClassTest < Test::Unit::TestCase
       assert_equal 'Foo', foo_bar.associations['foo']
       assert_equal 'Bar', foo_bar.associations['bars']
       assert_equal '*', foo_bar.associations['bars-n']
-      assert_equal nil, foo_bar.associations['args']
+      assert_nil foo_bar.associations['args']
     end
 
   end
