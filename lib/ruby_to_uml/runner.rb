@@ -10,25 +10,18 @@ module RubyToUML
     attr_reader :smart_mode, :html_mode
 
     def initialize(args)
+      return puts 'Usage: ruby_to_uml [source directory]' if args.empty?
       @args = args
       @smart_mode = false
       parse_options(args)
     end
 
     def run
-      return puts 'Usage: ruby_to_uml [source directory]' if args.empty?
-
       classes = parse_s_expressions
-
       return puts 'No ruby files in the directory.' unless classes
-
-      diagram = Diagram.new
-
       classes.each { |c| c.infer_types! classes } if @smart_mode
 
-      diagram.create do
-        classes.each { |c| add c }
-      end.compute!
+      diagram = create_diagram(classes)
 
       svg = download_svg(diagram)
       save_to_file(svg)
@@ -49,6 +42,13 @@ module RubyToUML
 
     def parse_s_expressions
       ParserSexp.new(args[0]).parse_sources!
+    end
+
+    def create_diagram
+      diagram = Diagram.new
+      diagram.create do
+        classes.each { |c| add c }
+      end.compute!
     end
 
     def download_svg(diagram)
