@@ -17,19 +17,16 @@ Gem::Specification.new do |spec|
     lib/ruby_to_uml/version.rb
     lib/ruby_to_uml/runner.rb
     lib/ruby_to_uml/parser_sexp.rb
-    lib/ruby_to_uml/extension.rb
     lib/ruby_to_uml/uml_class.rb
     lib/ruby_to_uml/diagram.rb
     test/diagram_test.rb
     test/uml_class_test.rb
-    test/runner_test.rb
     test/string_test.rb
   ]
   spec.test_files = %w[
     test/uml_class_test.rb
     test/parser_sexp_test.rb
     test/diagram_test.rb
-    test/runner_test.rb
     test/string_test.rb
   ]
   spec.executables = ['ruby_to_uml']
