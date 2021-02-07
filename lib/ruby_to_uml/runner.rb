@@ -19,7 +19,7 @@ module RubyToUML
     def run
       classes = parse_s_expressions
       return puts 'No ruby files in the directory.' unless classes
-      classes.each { |c| c.infer_types! classes } if @smart_mode
+      classes.each { |c| c.infer_types! classes } if smart_mode
 
       diagram = create_diagram(classes)
 
@@ -29,7 +29,7 @@ module RubyToUML
     private
 
     attr_reader :args
-    attr_writer :smart_mode
+    attr_accessor :smart_mode
 
     def parse_options(args)
       OptionParser.new do |opts|
