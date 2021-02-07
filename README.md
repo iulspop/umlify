@@ -69,7 +69,7 @@ cardinality of '*' with a class called "Duck", if such a class exists.
 ## Contributing
 
 This project is not meant to be developed continuously, but maintained in a functional state.
-Though, if you want to add your ideas to it. You're welcome to open an issue.
+But, you're welcome to open an issue if you want to suggest or add ideas to the project.
 ## Contributors ✨
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
