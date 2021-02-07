@@ -20,21 +20,19 @@ module RubyToUML
 
       classes = parse_s_expressions
 
-      if classes
-        diagram = Diagram.new
+      return puts 'No ruby files in the directory.' unless classes
 
-        classes.each { |c| c.infer_types! classes } if @smart_mode
+      diagram = Diagram.new
 
-        diagram.create do
-          classes.each { |c| add c }
-        end.compute!
+      classes.each { |c| c.infer_types! classes } if @smart_mode
 
-        svg = download_svg(diagram)
-        save_to_file(svg)
-        puts 'Saved in uml.svg'
-      else
-        puts 'No ruby files in the directory.'
-      end
+      diagram.create do
+        classes.each { |c| add c }
+      end.compute!
+
+      svg = download_svg(diagram)
+      save_to_file(svg)
+      puts 'Saved in uml.svg'
     end
 
     private
