@@ -9,4 +9,5 @@ group :development do
   gem 'shoulda'
   gem 'rake'
   gem 'minitest'
+  gem 'rubocop'
 end

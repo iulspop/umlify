@@ -1,26 +1,26 @@
+# frozen_string_literal: true
+
 require 'minitest/autorun'
 require 'shoulda'
 require 'ruby_to_uml'
 
 class ParserSexpTest < Minitest::Test
-
-  context "ParserSexp" do
-
+  context 'ParserSexp' do
     setup do
-      fixture = ["somefile.rb", "someotherfile.rb"]
+      fixture = ['somefile.rb', 'someotherfile.rb']
       @p = RubyToUML::ParserSexp.new fixture
     end
 
-    should "respond to parse_sources!"  do
+    should 'respond to parse_sources!' do
       assert_respond_to @p, :parse_sources!
     end
 
-    should "return nil if no source file in the given directory" do
-      parser = RubyToUML::ParserSexp.new "test/fixtures/empty"
+    should 'return nil if no source file in the given directory' do
+      parser = RubyToUML::ParserSexp.new 'test/fixtures/empty'
       assert_nil parser.parse_sources!
     end
 
-    should "parse class names" do
+    should 'parse class names' do
       test = <<-END_FILE
       class AClassName
       end
@@ -28,7 +28,7 @@ class ParserSexpTest < Minitest::Test
       assert_equal 'AClassName', @p.parse_file(test)[0].name
     end
 
-    should "parse class name of inherited classes" do
+    should 'parse class name of inherited classes' do
       test = <<-END_FILE
       class AClassName < SuperClass
       end
@@ -37,7 +37,7 @@ class ParserSexpTest < Minitest::Test
       assert_equal 'SuperClass', @p.parse_file(test)[0].parent
     end
 
-    should "parse instance methods" do
+    should 'parse instance methods' do
       test = <<-END_FILE
       class Bar
         def initialize
@@ -51,10 +51,10 @@ class ParserSexpTest < Minitest::Test
       end
       END_FILE
       assert_equal 'Bar', @p.parse_file(test)[0].name
-      assert_equal ['initialize', 'foo'], @p.parse_file(test)[0].methods
+      assert_equal %w[initialize foo], @p.parse_file(test)[0].methods
     end
 
-    should "parse instance variables" do
+    should 'parse instance variables' do
       test = <<-END_FILE
       class Bar
         def foo
@@ -68,13 +68,13 @@ class ParserSexpTest < Minitest::Test
       END_FILE
       bar = @p.parse_file(test)[0]
       assert_instance_of RubyToUML::UmlClass, bar
-      assert bar.variables.include? "a_variable"
-      assert bar.variables.include? "another_variable"
+      assert bar.variables.include? 'a_variable'
+      assert bar.variables.include? 'another_variable'
       assert_equal false, bar.variables.include?('a_class_instance_variable')
       assert_equal false, bar.variables.include?('class_variable')
     end
 
-    should "Create associations when the types are specified" do
+    should 'Create associations when the types are specified' do
       test = <<-END_FILE
       # Describe the class's instance variables like that:
       #
@@ -92,13 +92,13 @@ class ParserSexpTest < Minitest::Test
       END_FILE
       bar = @p.parse_file(test)[0]
       assert_instance_of RubyToUML::UmlClass, bar
-      assert_equal "Unicorn", bar.associations['unicorn']
-      assert_equal "Duck", bar.associations['quackable']
-      assert_equal "Cow", bar.associations['edible']
-      assert_equal "1..*", bar.associations['edible-n']
+      assert_equal 'Unicorn', bar.associations['unicorn']
+      assert_equal 'Duck', bar.associations['quackable']
+      assert_equal 'Cow', bar.associations['edible']
+      assert_equal '1..*', bar.associations['edible-n']
     end
 
-    should "parse inherited classes" do
+    should 'parse inherited classes' do
       test = <<-END_FILE
         class Bar < Hash
 
@@ -112,10 +112,10 @@ class ParserSexpTest < Minitest::Test
       END_FILE
       bar = @p.parse_file(test)[0]
       assert_instance_of RubyToUML::UmlClass, bar
-      assert_equal "Hash", bar.parent
+      assert_equal 'Hash', bar.parent
     end
 
-    should "parse inheritance from other modules" do
+    should 'parse inheritance from other modules' do
       test = <<-END_FILE
         class Bar < SomeModule::Hash
 
@@ -129,10 +129,10 @@ class ParserSexpTest < Minitest::Test
       END_FILE
       bar = @p.parse_file(test)[0]
       assert_instance_of RubyToUML::UmlClass, bar
-      assert_equal "SomeModule::Hash", bar.parent
+      assert_equal 'SomeModule::Hash', bar.parent
     end
 
-    should "parse classes from a module" do
+    should 'parse classes from a module' do
       test = <<-END_FILE
         class SomeModule::Bar < Hash
 
@@ -146,10 +146,10 @@ class ParserSexpTest < Minitest::Test
       END_FILE
       bar = @p.parse_file(test)[0]
       assert_instance_of RubyToUML::UmlClass, bar
-      assert_equal "SomeModule::Bar", bar.name
+      assert_equal 'SomeModule::Bar', bar.name
     end
 
-    should "parse file with multiple classes" do
+    should 'parse file with multiple classes' do
       test = <<-END_FILE
         class Bar < Hash
         end
@@ -162,15 +162,13 @@ class ParserSexpTest < Minitest::Test
       assert_equal 2, classes.count
     end
 
-    should "return an array of UmlClasses when the parsing is done" do
+    should 'return an array of UmlClasses when the parsing is done' do
       p = RubyToUML::ParserSexp.new 'test/fixtures'
       parsed_classes = p.parse_sources!
       assert_equal 4, parsed_classes.count
     end
 
-    should "parse classes with ruby accessors" do
+    should 'parse classes with ruby accessors' do
     end
-
   end
 end
-

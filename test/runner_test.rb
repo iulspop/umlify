@@ -1,11 +1,11 @@
+# frozen_string_literal: true
+
 require 'minitest/autorun'
 require 'shoulda'
 require 'ruby_to_uml'
 
 class RunnerTest < Minitest::Test
-
-  context "Runner" do
-
+  context 'Runner' do
     # should 'be in smart mode when passed -s or --smart as an option'  do
     #   r = RubyToUML::Runner.new(["-s"])
     #   r.run
@@ -25,4 +25,3 @@ class RunnerTest < Minitest::Test
     # end
   end
 end
-

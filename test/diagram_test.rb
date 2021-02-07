@@ -1,20 +1,20 @@
+# frozen_string_literal: true
+
 require 'minitest/autorun'
 require 'shoulda'
 require 'ruby_to_uml'
 
 class DiagramTest < Minitest::Test
-
-  context "Diagram" do
-
+  context 'Diagram' do
     setup do
       @diagram = RubyToUML::Diagram.new
     end
 
-    should "respond to create"  do
+    should 'respond to create' do
       assert_respond_to @diagram, :create
     end
 
-    should "add Strings statements to diagram"  do
+    should 'add Strings statements to diagram' do
       test_statement = '[foo]->[bar]'
       @diagram.create do
         add test_statement
@@ -23,7 +23,7 @@ class DiagramTest < Minitest::Test
       assert_equal ['[foo]->[bar]'], @diagram.statements
     end
 
-    should "add UmlClass without associations to diagrams"  do
+    should 'add UmlClass without associations to diagrams' do
       test_uml_class = RubyToUML::UmlClass.new 'Unicorn'
       test_uml_class.variables << 'foo_variable'
       test_uml_class.methods << 'bar_method'
@@ -35,7 +35,7 @@ class DiagramTest < Minitest::Test
       assert @diagram.statements.include? '[Unicorn|foo_variable|bar_method]'
     end
 
-    should "add UmlClass with associations to diagrams"  do
+    should 'add UmlClass with associations to diagrams' do
       test_uml_class = RubyToUML::UmlClass.new 'Unicorn'
       test_uml_class.variables << 'foo_variable'
       test_uml_class.methods << 'bar_method'
@@ -51,7 +51,7 @@ class DiagramTest < Minitest::Test
       assert @diagram.statements.include? '[Unicorn]-chunky>[Bacon]'
     end
 
-    should "process cardinality for associations"  do
+    should 'process cardinality for associations' do
       test_uml_class = RubyToUML::UmlClass.new 'Unicorn'
       test_uml_class.associations['foo'] = 'Bar'
       test_uml_class.associations['foo-n'] = '1..*'
@@ -79,12 +79,10 @@ class DiagramTest < Minitest::Test
 
     should "sort the statements so that the class declarations are first, then
         the inheritance, then the associations" do
-
       @diagram.statements = ['[Foo]^[Unicorn]', '[Unicorn]-foo 1..*>[Bar]', '[Unicorn|foo_variable|bar_method]']
       @diagram.compute!
-      assert_equal ['[Unicorn|foo_variable|bar_method]', '[Foo]^[Unicorn]', '[Unicorn]-foo 1..*>[Bar]'], @diagram.statements
+      assert_equal ['[Unicorn|foo_variable|bar_method]', '[Foo]^[Unicorn]', '[Unicorn]-foo 1..*>[Bar]'],
+                   @diagram.statements
     end
-
   end
 end
-

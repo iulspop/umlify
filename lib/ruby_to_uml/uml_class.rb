@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'active_support/inflector' # To uses String#classify
 module RubyToUML
   # Represents a parsed uml class

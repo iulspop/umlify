@@ -1,9 +1,8 @@
-class Foo
+# frozen_string_literal: true
 
-  def initialize
-  end
+class Foo
+  def initialize; end
 end
 
 class Bar
-
 end
