@@ -11,42 +11,47 @@ module RubyToUML
 
     # Takes as input an array with file names
     def initialize(args)
-      @args = args
+      args = args
       @smart_mode = false
     end
 
     # Runs the application
     def run
       parse_options
+      return puts 'Usage: ruby_to_uml [source directory]' if args.empty?
 
-      if @args.empty?
-        puts 'Usage: ruby_to_uml [source directory]'
+      classes = parse_s_expressions
+
+      if classes
+        diagram = Diagram.new
+
+        classes.each { |c| c.infer_types! classes } if @smart_mode
+
+        diagram.create do
+          classes.each { |c| add c }
+        end.compute!
+
+        svg = download_svg(diagram)
+        save_to_file(svg)
+        puts 'Saved in uml.svg'
       else
-        parser_sexp = ParserSexp.new @args[0]
-
-        if classes = parser_sexp.parse_sources!
-          diagram = Diagram.new
-
-          classes.each { |c| c.infer_types! classes } if @smart_mode
-
-          diagram.create do
-            classes.each { |c| add c }
-          end.compute!
-
-          svg = download_svg(diagram)
-          save_to_file(svg)
-          puts 'Saved in uml.svg'
-        else
-          puts 'No ruby files in the directory.'
-        end
+        puts 'No ruby files in the directory.'
       end
     end
+
+    private
+
+    attr_reader :args
 
     def parse_options
       OptionParser.new do |opts|
         opts.on('-s', '--smart') { @smart_mode = true }
         opts.on('-v', '--version') { puts VERSION }
-      end.parse! @args
+      end.parse!(args)
+    end
+
+    def parse_s_expressions
+      ParserSexp.new(args[0]).parse_sources!
     end
 
     def download_svg(diagram)
