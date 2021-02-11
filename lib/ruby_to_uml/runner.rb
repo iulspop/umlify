@@ -11,6 +11,7 @@ module RubyToUML
 
     def initialize(args)
       return puts 'Usage: ruby_to_uml [source directory]' if args.empty?
+
       @args = args
       @smart_mode = false
       parse_options
@@ -19,6 +20,7 @@ module RubyToUML
     def run
       classes = parse_s_expressions
       return puts 'No ruby files in the directory.' unless classes
+
       classes.each { |c| c.infer_types! classes } if smart_mode
 
       diagram = create_diagram(classes)
