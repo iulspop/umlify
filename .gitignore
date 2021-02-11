@@ -1,4 +1,4 @@
 pkg/*
-preview.html
 .vscode
 uml.svg
+Gemfile.lock
