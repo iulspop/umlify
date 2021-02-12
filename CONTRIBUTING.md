@@ -47,5 +47,6 @@ Whether it's code, design, typo or documentation, every contribution is welcomed
 [install-ruby]: https://www.ruby-lang.org/en/documentation/installation/
 [install-bundler]: https://bundler.io/
 [minitest]: https://github.com/seattlerb/minitest
+[shoulda]: https://github.com/thoughtbot/shoulda
 [rubocop]: https://github.com/rubocop-hq/rubocop
 [all-contributors-bot-command]: https://allcontributors.org/docs/en/bot/usage#all-contributors-add
