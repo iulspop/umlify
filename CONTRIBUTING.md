@@ -39,7 +39,7 @@ Once everything is ready, open a Pull-Request (if it's not already done) and ask
 
 Finally, [use all-contributors bot command][all-contributors-bot-command] to add yourself to the list of contributors. It's very easy to do, you basically need to mention the bot in a comment of your PR.
 
-Whether it's code, design, typo or documentation, every contribution is welcomed! So again, thank you very, very much 🧙
+Whether it's code, design, typo or documentation, every contribution is welcomed! So again, thank you very, very much ✨
 
 <!-- Links -->
 
