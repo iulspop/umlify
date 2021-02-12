@@ -18,14 +18,15 @@ Ruby To UML takes creates a uml class diagram from ruby source code.
 2. Run ruby_to_um
     * To create diagram for a whole project: `ruby_to_uml lib/`
     * To create diagram for one file: `ruby_to_uml lib/thing.rb`
-    * Optionally, you can pass in the '-s' option to ruby_to_uml for it decuce associations between classes
+    * Pass in the '-s' or '--smart' option for ruby_to_uml decuce associations between classes
+    * Pass in the '-l' or '--link' option to output link to diagram instead of saving png.
 
-3. Open uml.svg with any browser
+3. Open uml.png
 
 ## Features
 
 * Tries to guess the types of the instance variables (smart mode)
-* supports inheritiance
+* supports inheritance
 * supports associations (see "How to add associations to a diagram")
 * supports methods and instance variables
 
@@ -70,6 +71,7 @@ cardinality of '*' with a class called "Duck", if such a class exists.
 
 This project is not meant to be developed continuously, but maintained in a functional state.
 But, you're welcome to open an issue if you want to suggest or add ideas to the project.
+
 ## Contributors ✨
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
@@ -105,7 +107,6 @@ Thanks to Michael Sokol and contributors for creating Umlify and allowing me to 
 ## Licence
 
 💁 [MIT][license]
-
 
 <!-- Links -->
 
