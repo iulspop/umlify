@@ -25,7 +25,10 @@ module RubyToUML
       uri = create_yuml_uri(diagram)
 
       return puts "Link to yUML Diagram: #{uri}" if link_mode
-      create_svg_file(uri)
+
+      svg = download_svg(uri)
+      create_svg_file(svg)
+      puts 'Diagram saved in uml.svg'
     end
 
     private
@@ -61,17 +64,11 @@ module RubyToUML
       uri = URI(scheme + host + path)
     end
 
-    def create_svg_file(uri)
-      svg = download_svg(uri)
-      save_to_file(svg)
-      puts 'Diagram saved in uml.svg'
-    end
-
     def download_svg(uri)
       Net::HTTP.get_response(uri).body
     end
 
-    def save_to_file(svg)
+    def save_svg_file(svg)
       File.open('uml.svg', 'w') do |file|
         file << svg
       end
