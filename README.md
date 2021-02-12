@@ -15,7 +15,7 @@ Ruby To UML takes creates a uml class diagram from ruby source code.
 
 1. Go to your Ruby project directory
 
-2. Run ruby_to_um
+2. Run ruby_to_uml
     * To create diagram for a whole project: `ruby_to_uml lib/`
     * To create diagram for one file: `ruby_to_uml lib/thing.rb`
     * Pass in the '-s' or '--smart' option for ruby_to_uml to decuce associations between classes
@@ -69,8 +69,7 @@ cardinality of '*' with a class called "Duck", if such a class exists.
 
 ## Contributing
 
-This project is not meant to be developed continuously, but maintained in a functional state.
-But, you're welcome to open an issue if you want to suggest or add ideas to the project.
+Read our [contributing guide][contributing] to learn about our development process, how to propose bugfixes and improvements, and how to build and test your changes to Ruby To UML.
 
 ## Contributors ✨
 
@@ -99,10 +98,9 @@ This project follows the [all-contributors](https://github.com/all-contributors/
 
 This gem is a fork of [umlify](https://github.com/mikaa123/umlify).
 That project is no longer maintained, but the code is good and solves a problem.
+Ruby To UML fixes breaking issues with Umlify and adds new features.
 
-This project fixes breaking issues with umlify. We also plan to add new features, such as showing private/public methods.
-
-Thanks to Michael Sokol and contributors for creating Umlify and allowing me to republish it!
+Thank you to previous contributors for creating Umlify and to Michael Sokol for allowing us to republish it!
 
 ## Licence
 
@@ -110,6 +108,7 @@ Thanks to Michael Sokol and contributors for creating Umlify and allowing me to 
 
 <!-- Links -->
 
+[contributing]: https://github.com/iulspop/ruby_to_uml/blob/master/CONTRIBUTING.md
 [license]: https://github.com/iulspop/ruby_to_uml/blob/master/LICENSE.md
 
 <!-- Demo images -->
