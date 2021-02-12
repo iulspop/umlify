@@ -22,13 +22,15 @@ module RubyToUML
       classes.each { |c| c.infer_types! classes } if smart_mode
 
       diagram = create_diagram(classes)
-      uri = create_yuml_uri(diagram)
 
-      return puts "Link to yUML Diagram: #{uri}" if link_mode
-
-      svg = download_svg(uri)
-      create_svg_file(svg)
-      puts 'Diagram saved in uml.svg'
+      if link_mode
+        uri = yuml_uri(diagram)
+        puts "Link to yUML Diagram: #{uri}"
+      else
+        png = download_diagram(yuml_uri(diagram, type: '.png'))
+        save_file(png, type: '.png')
+        puts 'Diagram saved in uml.png'
+      end
     end
 
     private
@@ -57,20 +59,20 @@ module RubyToUML
       diagram
     end
 
-    def create_yuml_uri(diagram)
+    def yuml_uri(diagram, type: '')
       scheme = 'https://'
       host = 'yuml.me'
       path = "/diagram/boring/class/#{ERB::Util.url_encode(diagram.get_dsl)}"
-      uri = URI(scheme + host + path)
+      uri = URI(scheme + host + path + type)
     end
 
-    def download_svg(uri)
+    def download_diagram(uri)
       Net::HTTP.get_response(uri).body
     end
 
-    def save_svg_file(svg)
-      File.open('uml.svg', 'w') do |file|
-        file << svg
+    def save_file(data, type: '')
+      File.open("uml#{type}", 'w') do |file|
+        file << data
       end
     end
   end
