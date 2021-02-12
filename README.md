@@ -32,7 +32,7 @@ Ruby To UML creates a UML class diagram from Ruby source code.
 
 ## How it works
 
-ruby_to_uml uses ruby_parser to parse Ruby source code to an S-expression tree. Then, the S-expression is parsed into UML classes. Finally, the UML classes are convert to a DSL and sent to [yUML](http://yuml.me/)'s API for conversion into a diagram.
+Ruby to UML uses `ruby_parser` to parse Ruby source code to an S-expression tree. Then, the S-expression is parsed into UML classes. Finally, the UML classes are convert to a DSL and sent to [yUML](http://yuml.me/)'s API for conversion into a diagram.
 
 ## On dynamic languages
 
