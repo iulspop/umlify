@@ -5,43 +5,45 @@ require 'net/http'
 require 'erb'
 
 module RubyToUML
-  # Run an instance of RubyToUML program. Only intended for internal use.
   class Runner
-    attr_reader :smart_mode, :html_mode
-
     def initialize(args)
-      return puts 'Usage: ruby_to_uml [source directory]' if args.empty?
+      abort('Usage: ruby_to_uml [source directory]') if args.empty?
 
       @args = args
       @smart_mode = false
+      @link_mode = false
+
       parse_options
     end
 
     def run
       classes = parse_s_expressions
-      return puts 'No ruby files in the directory.' unless classes
-
+      abort('No ruby files in the directory.') unless classes
       classes.each { |c| c.infer_types! classes } if smart_mode
 
       diagram = create_diagram(classes)
+      uri = create_yuml_uri(diagram)
 
-      create_svg_file(diagram)
+      return puts "Link to yUML Diagram: #{uri}" if link_mode
+      create_svg_file(uri)
     end
 
     private
 
     attr_reader :args
-    attr_writer :smart_mode
+    attr_accessor :smart_mode, :link_mode
 
     def parse_options
       OptionParser.new do |opts|
-        opts.on('-s', '--smart') { smart_mode = true }
+        opts.on('-s', '--smart') { self.smart_mode = true }
+        opts.on('-l', '--link')  { self.link_mode = true }
         opts.on('-v', '--version') { puts VERSION }
       end.parse!(args)
     end
 
     def parse_s_expressions
-      ParserSexp.new(args[0]).parse_sources!
+      path = args[0]
+      ParserSexp.new(path).parse_sources!
     end
 
     def create_diagram(classes)
@@ -52,17 +54,20 @@ module RubyToUML
       diagram
     end
 
-    def create_svg_file(diagram)
-      svg = download_svg(diagram)
-      save_to_file(svg)
-      puts 'Saved in uml.svg'
-    end
-
-    def download_svg(diagram)
+    def create_yuml_uri(diagram)
       scheme = 'https://'
       host = 'yuml.me'
-      path = "/diagram/scruffy/class/#{ERB::Util.url_encode(diagram.get_dsl)}"
+      path = "/diagram/boring/class/#{ERB::Util.url_encode(diagram.get_dsl)}"
       uri = URI(scheme + host + path)
+    end
+
+    def create_svg_file(uri)
+      svg = download_svg(uri)
+      save_to_file(svg)
+      puts 'Diagram saved in uml.svg'
+    end
+
+    def download_svg(uri)
       Net::HTTP.get_response(uri).body
     end
 

@@ -11,8 +11,8 @@ Gem::Specification.new do |spec|
   spec.homepage = 'https://github.com/iulspop/ruby_to_uml'
   spec.license  = 'MIT'
 
-  spec.authors  = ['Iuliu Pop', 'Michael Sokol']
-  spec.email    = ['iuliu.laurentiu.pop@protonmail.com', '']
+  spec.authors  = ['Iuliu Pop']
+  spec.email    = ['iuliu.laurentiu.pop@protonmail.com']
 
   spec.required_ruby_version = '>= 3.0.0'
 
