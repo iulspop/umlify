@@ -114,4 +114,4 @@ Thanks to Michael Sokol and contributors for creating Umlify and allowing me to 
 
 <!-- Demo images -->
 
-[uml_diagram_demo]: https://github.com/iulspop/ruby_to_uml/blob/master/docs/UML_diagram_demo.svg?raw=true
+[uml_diagram_demo]: https://github.com/iulspop/ruby_to_uml/blob/master/docs/demo/uml_diagram.png?raw=true
