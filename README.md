@@ -18,8 +18,8 @@ Ruby To UML takes creates a uml class diagram from ruby source code.
 2. Run ruby_to_um
     * To create diagram for a whole project: `ruby_to_uml lib/`
     * To create diagram for one file: `ruby_to_uml lib/thing.rb`
-    * Pass in the '-s' or '--smart' option for ruby_to_uml decuce associations between classes
-    * Pass in the '-l' or '--link' option to output link to diagram instead of saving png.
+    * Pass in the '-s' or '--smart' option for ruby_to_uml to decuce associations between classes
+    * Pass in the '-l' or '--link' option to output link to diagram instead of saving png
 
 3. Open uml.png
 
