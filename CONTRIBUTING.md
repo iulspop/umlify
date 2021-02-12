@@ -1,6 +1,6 @@
 # Contributing to Ruby To UML
 
-First of all, we'd like to thank you for taking some of your time to contribute to the project. You're awesome 🤠👍
+First of all, thank you for taking the time to contribute to our project. You're amazing! 😎🌟
 
 ## Table of Contents
 
