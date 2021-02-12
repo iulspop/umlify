@@ -69,7 +69,7 @@ cardinality of '*' with a class called "Duck", if such a class exists.
 
 ## Contributing
 
-Read our [contributing guide][contributing] to learn about our development process, how to propose bugfixes and improvements, and how to build and test your changes to Ruby To UML.
+Read our [contributing guide][contributing] to learn how to build and test your changes to Ruby To UML.
 
 ## Contributors ✨
 

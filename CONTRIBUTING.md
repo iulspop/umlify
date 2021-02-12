@@ -33,13 +33,13 @@ This allows you to use the gem before it's published to the RubyGems.
 
 ## Open a PR and add acknowledge your contribution
 
-You can open a Pull-Request at any time. It can even be a draft if you need to ask for guidance and help. Actually, we'd be pretty happy to assist you going in the best direction!
+You can open a Pull-Request at any time. It can even be a draft if you need to ask for guidance and help.
 
-Once everything is ready, open a Pull-Request (if it's not already done) and ask for a review. We'll do our best to review it asap.
+Once everything is ready, open a Pull-Request (if it's not already done) and ask for a review. We'll review it asap.
 
-Finally, [use all-contributors bot command][all-contributors-bot-command] to add yourself to the list of contributors. It's very easy to do, you basically need to mention the bot in a comment of your PR.
+Finally, [use all-contributors bot command][all-contributors-bot-command] to add yourself to the list of contributors. It's easy to do, just mention the bot in a comment of your PR.
 
-Whether it's code, design, typo or documentation, every contribution is welcomed! So again, thank you very, very much ✨
+Whether it's code, design, typo or documentation, every contribution is welcomed! Thank you very much ✨
 
 <!-- Links -->
 
