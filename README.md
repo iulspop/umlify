@@ -3,7 +3,7 @@
 [![All Contributors](https://img.shields.io/badge/all_contributors-4-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
-Ruby To UML takes creates a uml class diagram from ruby source code.
+Ruby To UML creates a UML class diagram from Ruby source code.
 
 ![][uml_diagram_demo]
 
