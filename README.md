@@ -126,7 +126,7 @@ Thank you to previous contributors for creating Umlify and to Michael Sokol for 
 
 <!-- Links -->
 
-[changelog]: https://github.com/nicoespeon/abracadabra/blob/master/CHANGELOG.md
+[changelog]: https://github.com/iulspop/ruby_to_uml/blob/master/CHANGELOG.md
 [semver]: http://semver.org/
 [contributing]: https://github.com/iulspop/ruby_to_uml/blob/master/CONTRIBUTING.md
 [license]: https://github.com/iulspop/ruby_to_uml/blob/master/LICENSE.md
