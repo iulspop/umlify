@@ -9,6 +9,7 @@ Gem::Specification.new do |spec|
 
   spec.summary  = 'ruby_to_uml is a tool that creates class diagrams from Ruby code.'
   spec.homepage = 'https://github.com/iulspop/ruby_to_uml'
+  spec.metadata = { "source_code_uri" => "https://github.com/iulspop/ruby_to_uml" }
   spec.license  = 'MIT'
 
   spec.authors  = ['Iuliu Pop']
@@ -22,17 +23,12 @@ Gem::Specification.new do |spec|
   spec.executables << 'ruby_to_uml'
 
   spec.files = %w[
-    Rakefile
-    README.md
     bin/ruby_to_uml
     lib/ruby_to_uml.rb
-    lib/ruby_to_uml/version.rb
-    lib/ruby_to_uml/runner.rb
-    lib/ruby_to_uml/parser_sexp.rb
-    lib/ruby_to_uml/uml_class.rb
     lib/ruby_to_uml/diagram.rb
-    test/diagram_test.rb
-    test/uml_class_test.rb
-    test/string_test.rb
+    lib/ruby_to_uml/parser_sexp.rb
+    lib/ruby_to_uml/runner.rb
+    lib/ruby_to_uml/uml_class.rb
+    lib/ruby_to_uml/version.rb
   ]
 end
