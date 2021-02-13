@@ -25,10 +25,10 @@ Ruby To UML creates a UML class diagram from Ruby source code.
 
 ## Features
 
-* Tries to guess the types of the instance variables (smart mode)
-* supports inheritance
-* supports associations (see "How to add associations to a diagram")
-* supports methods and instance variables
+* Guess the types of the instance variables (smart mode)
+* Inheritance
+* Associations (see "How to add associations to a diagram")
+* Mthods and instance variables
 
 ## How it works
 
@@ -66,6 +66,24 @@ association with the "Duck" class, if it exists.
 
 If your variable is @ducks, it will try to create an association with a
 cardinality of '*' with a class called "Duck", if such a class exists.
+
+## Release Notes
+
+[Have a look at our CHANGELOG][changelog] to get the details of all changes between versions.
+
+### Versioning
+
+We follow [SemVer][semver] convention for versionning.
+
+That means our releases use the following format:
+
+```
+<major>.<minor>.<patch>
+```
+
+- Breaking changes bump `<major>` (and reset `<minor>` & `<patch>`)
+- Backward compatible changes bump `<minor>` (and reset `<patch>`)
+- Bug fixes bump `<patch>`
 
 ## Contributing
 
@@ -108,6 +126,8 @@ Thank you to previous contributors for creating Umlify and to Michael Sokol for 
 
 <!-- Links -->
 
+[changelog]: https://github.com/nicoespeon/abracadabra/blob/master/CHANGELOG.md
+[semver]: http://semver.org/
 [contributing]: https://github.com/iulspop/ruby_to_uml/blob/master/CONTRIBUTING.md
 [license]: https://github.com/iulspop/ruby_to_uml/blob/master/LICENSE.md
 
