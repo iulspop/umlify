@@ -10,8 +10,9 @@ module RubyToUML
       @statements = []
     end
 
-    def create(&blk)
-      instance_eval(&blk)
+    def create(classes)
+      classes.each { |one_class| add(one_class) }
+      compute!
       self
     end
 

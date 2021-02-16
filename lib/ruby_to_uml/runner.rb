@@ -53,10 +53,7 @@ module RubyToUML
 
     def create_diagram(classes)
       diagram = Diagram.new
-      diagram.create do
-        classes.each { |c| add c }
-      end.compute!
-      diagram
+      diagram.create(classes)
     end
 
     def yuml_uri(diagram, type: '')
