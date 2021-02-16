@@ -16,9 +16,7 @@ class DiagramTest < Minitest::Test
 
     should 'add Strings statements to diagram' do
       test_statement = '[foo]->[bar]'
-      @diagram.create do
-        add test_statement
-      end
+      @diagram.create([test_statement])
 
       assert_equal ['[foo]->[bar]'], @diagram.statements
     end
@@ -28,9 +26,7 @@ class DiagramTest < Minitest::Test
       test_uml_class.variables << 'foo_variable'
       test_uml_class.methods << 'bar_method'
 
-      @diagram.create do
-        add test_uml_class
-      end
+      @diagram.create([test_uml_class])
 
       assert @diagram.statements.include? '[Unicorn|foo_variable|bar_method]'
     end
@@ -42,9 +38,7 @@ class DiagramTest < Minitest::Test
       test_uml_class.associations['foo'] = 'Bar'
       test_uml_class.associations['chunky'] = 'Bacon'
 
-      @diagram.create do
-        add test_uml_class
-      end
+      @diagram.create([test_uml_class])
 
       assert @diagram.statements.include? '[Unicorn|foo_variable|bar_method]'
       assert @diagram.statements.include? '[Unicorn]-foo>[Bar]'
@@ -56,9 +50,7 @@ class DiagramTest < Minitest::Test
       test_uml_class.associations['foo'] = 'Bar'
       test_uml_class.associations['foo-n'] = '1..*'
 
-      @diagram.create do
-        add test_uml_class
-      end
+      @diagram.create([test_uml_class])
 
       assert @diagram.statements.include? '[Unicorn]-foo 1..*>[Bar]'
     end
