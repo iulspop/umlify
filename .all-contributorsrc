@@ -41,6 +41,16 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "anne1365",
+      "name": "Anne Jones",
+      "avatar_url": "https://avatars.githubusercontent.com/u/46408257?v=4",
+      "profile": "https://github.com/anne1365",
+      "contributions": [
+        "code",
+        "ideas"
+      ]
     }
   ],
   "contributorsPerLine": 7,
