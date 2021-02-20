@@ -23,9 +23,6 @@ Ruby To UML creates a UML class diagram from Ruby source code.
 
 3. Open uml.png
 
-**Important, Ruby to UML doesn't work with large programs like Pry (9K LOC). It can work with Minitest (5K LOC)**
-Unfortunately, that is due to a limitation with the diagram generating service (yUML) and cannot be fixed.
-
 ## Features
 
 * Guess the types of the instance variables (smart mode)
@@ -90,8 +87,7 @@ That means our releases use the following format:
 
 ## Contributing
 
-Development of Ruby To UML has stopped, since the use of yUML limits the use cases of this tool to smaller applications.
-An entirely different program that controls the diagram rendering is necessary to overcome this limitation.
+Read our [contributing guide][contributing] to learn how to build and test your changes to Ruby To UML.
 
 ## Contributors ✨
 
