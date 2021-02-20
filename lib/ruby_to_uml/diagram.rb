@@ -2,7 +2,7 @@
 
 module RubyToUML
   # Creates and store a yUML api string for generating diagram
-  # * type of @statements: 1..* String
+  # * type of statements: 1..* String
   class Diagram
     attr_accessor :statements
 
@@ -12,18 +12,25 @@ module RubyToUML
       compute!
     end
 
+    # returns just the DSL text for diagram
+    def get_dsl
+      statements.join(', ')
+    end
+
+    private
+
     # Adds the given statement to the diagram array
     # Statement can either be a String or an UmlClass
     def add(statement)
       # TODO: Add some sort of validation
 
-      @statements << statement if statement.is_a? String
+      statements << statement if statement.is_a? String
       if statement.is_a? UmlClass
 
-        @statements << statement.to_s
+        statements << statement.to_s
 
         statement.children&.each do |child|
-          @statements << "[#{statement.name}]^[#{child.name}]"
+          statements << "[#{statement.name}]^[#{child.name}]"
         end
 
         unless statement.associations.empty?
@@ -31,7 +38,7 @@ module RubyToUML
             next if name =~ /-/
 
             cardinality = (" #{statement.associations["#{name}-n"]}" if statement.associations["#{name}-n"])
-            @statements << "[#{statement.name}]-#{name}#{cardinality}>[#{type}]"
+            statements << "[#{statement.name}]-#{name}#{cardinality}>[#{type}]"
           end
         end
 
@@ -48,7 +55,7 @@ module RubyToUML
       inheritance = /\[(.*?)\]\^\[(.*?)\]/
       association = /\[.*\]-.*>\[.*\]/
 
-      @statements.sort! do |x, y|
+      statements.sort! do |x, y|
         if x =~ class_def && y =~ inheritance
           -1
         elsif x =~ class_def && y =~ association
@@ -65,11 +72,6 @@ module RubyToUML
           1
         end
       end
-    end
-
-    # returns just the DSL text for diagram
-    def get_dsl
-      @statements.join(', ')
     end
   end
 end
