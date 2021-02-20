@@ -21,7 +21,7 @@ module RubyToUML
       abort('No ruby files in the directory.') unless classes
       classes.each { |c| c.infer_types! classes } if smart_mode
 
-      diagram = create_diagram(classes)
+      diagram = Diagram.new(classes)
 
       if link_mode
         uri = yuml_uri(diagram)
@@ -49,11 +49,6 @@ module RubyToUML
     def parse_s_expressions
       path = args[0]
       ParserSexp.new(path).parse_sources!
-    end
-
-    def create_diagram(classes)
-      diagram = Diagram.new
-      diagram.create(classes)
     end
 
     def yuml_uri(diagram, type: '')

@@ -6,17 +6,13 @@ module RubyToUML
   class Diagram
     attr_accessor :statements
 
-    def initialize
+    def initialize(classes)
       @statements = []
-    end
-
-    def create(classes)
       classes.each { |one_class| add(one_class) }
       compute!
-      self
     end
 
-    # Adds the given statement to the @diagram array
+    # Adds the given statement to the diagram array
     # Statement can either be a String or an UmlClass
     def add(statement)
       # TODO: Add some sort of validation
