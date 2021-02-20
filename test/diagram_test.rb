@@ -10,10 +10,6 @@ class DiagramTest < Minitest::Test
       @diagram = RubyToUML::Diagram.new
     end
 
-    should 'respond to create' do
-      assert_respond_to @diagram, :create
-    end
-
     should 'add Strings statements to diagram' do
       test_statement = '[foo]->[bar]'
       @diagram.create([test_statement])
