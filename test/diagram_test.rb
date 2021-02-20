@@ -49,20 +49,6 @@ class DiagramTest < Minitest::Test
       assert diagram.statements.include? '[Unicorn]-foo 1..*>[Bar]'
     end
 
-    # should "add UmlClass with parent to diagrams"  do
-    #   test_uml_class = RubyToUML::UmlClass.new 'Unicorn'
-    #   test_uml_class.variables << 'foo_variable'
-    #   test_uml_class.methods << 'bar_method'
-    #   test_uml_class.parent = "Foo"
-
-    #   diagram = Diagram.new do
-    #     add test_uml_class
-    #   end
-
-    #   assert diagram.statements.include? '[Unicorn|foo_variable|bar_method]'
-    #   assert diagram.statements.include? '[Foo]^[Unicorn]'
-    # end
-
     should "sort the statements so that the class declarations are first, then
         the inheritance, then the associations" do
       statements= ['[Foo]^[Unicorn]', '[Unicorn]-foo 1..*>[Bar]', '[Unicorn|foo_variable|bar_method]']
